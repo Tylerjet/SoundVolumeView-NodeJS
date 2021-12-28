@@ -3,29 +3,24 @@ var path = require('path');
 
 
 function checkInput(input) {
-  switch (typeof input) {
-    case 'string':
-    break;
-    case 'object':
-      if (Array.isArray(input)) {
-        break;
-      } else {
-        throw new TypeError('Expected a string or an array as input');
+  const types = ['string', 'array'];
+  for (let i = 0; i < types.length; i++) {
+    if (Array.isArray(input)) {
+      if (types[i] === 'array') {
+        return input
       }
-    break;
-    default:
-      throw new TypeError('Expected a string or an array as input');
+      continue;
+    }
+    if (typeof input === types[i]) {
+      var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g);
+      input = input.match(reg);
+      input.forEach(function (el) {
+        input[input.indexOf(el)] = el.replace(/"/g, '');
+      });
+      return input
+    }
+    throw new TypeError('Expected a string or an array as input');
   }
-
-	if (!Array.isArray(input)) {
-		var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g);
-		input = input.match(reg);
-		input.forEach(function (el) {
-			input[input.indexOf(el)] = el.replace(/"/g, '');
-		});
-	}
-
-	return input;
 }
 
 
