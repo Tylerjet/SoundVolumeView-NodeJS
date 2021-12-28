@@ -1,5 +1,5 @@
 {
-  "name": "soundvolumeview-node",
+  "name": "soundvolumeview-nodejs",
   "version": "0.0.1",
   "description": "Perform audio tasks via SoundVolumeView.exe.",
   "license": "MIT",
