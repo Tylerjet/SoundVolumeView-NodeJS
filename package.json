@@ -1,0 +1,15 @@
+{
+  "name": "soundvolumeview-node",
+  "version": "0.0.1",
+  "description": "Perform audio tasks via SoundVolumeView.exe.",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "MrTylerjet"
+  },
+  "bin": "cli.js",
+  "files": [
+    "index.js",
+    "SoundVolumeView.exe"
+  ]
+}
