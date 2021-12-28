@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Perform audio tasks via SoundVolumeView.exe.",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/Tylerjet/SoundVolumeView-NodeJS",
   "author": {
     "name": "MrTylerjet"
   },
