@@ -3,7 +3,7 @@ var path = require('path');
 
 
 function checkInput(input) {
-  const types = ['string', 'array'];
+  const types = ['string', 'array']; // Check for string or array input unless throw error
   for (let i = 0; i < types.length; i++) {
     if (Array.isArray(input)) {
       if (types[i] === 'array') {
@@ -31,7 +31,7 @@ module.exports = function (input, opts) {
 		throw new Error('Only Windows systems are supported');
 	}
 
-	if (process.pkg) {
+	if (process.pkg) { //Set directory to outside the pkg exe as it cannot run inside of the snapshot system currently
 		__dirname = process.cwd()
 	}
 
