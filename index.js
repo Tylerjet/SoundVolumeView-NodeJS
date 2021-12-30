@@ -3,19 +3,19 @@ var path = require('path');
 
 
 function checkInput(input) {
-  const types = ['string', 'array']; // Check for string or array input unless throw error
-  for (let i = 0; i < types.length; i++) {
-    if (Array.isArray(input)) {
+  const types = ['string', 'array']; // Array of types to check
+  for (let i = 0; i < types.length; i++) { // Iterate through array of types
+    if (Array.isArray(input)) { // Input already an array
       if (types[i] === 'array') {
         return input
       }
       continue;
     }
     if (typeof input === types[i]) {
-      var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g);
-      input = input.match(reg);
+      var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g); // Create groups based on white spaces and sting quotes
+      input = input.match(reg); // Create Array of groups
       input.forEach(function (el) {
-        input[input.indexOf(el)] = el.replace(/"/g, '');
+        input[input.indexOf(el)] = el.replace(/["']/g, ''); //Remove quotes from array as it will stringify them automagically
       });
       return input
     }
