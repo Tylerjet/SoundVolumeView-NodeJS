@@ -31,7 +31,7 @@ module.exports = function (input, opts) {
 		throw new Error('Only Windows systems are supported');
 	}
 
-	if (process.pkg) { //Set directory to outside the pkg exe as it cannot run inside of the snapshot system currently
+	if (process.pkg) { //Set directory to outside the pkg exe (if packaged using zeit/pkg) as it cannot run inside of the snapshot system currently
 		__dirname = process.cwd()
 	}
 
