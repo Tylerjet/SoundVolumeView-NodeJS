@@ -12,7 +12,7 @@ function checkInput(input) {
       continue;
     }
     if (typeof input === types[i]) {
-      var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g); // Create groups based on white spaces and sting quotes
+      var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g); // Select groups of strings to separate them
       input = input.match(reg); // Create Array of groups
       input.forEach(function (el) {
         input[input.indexOf(el)] = el.replace(/["']/g, ''); //Remove quotes from array as it will stringify them automagically
