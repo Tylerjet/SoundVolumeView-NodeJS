@@ -13,7 +13,7 @@ function checkInput(input) {
     }
     if (typeof input === types[i]) {
       var reg = new RegExp(/[^\s"']+|"([^"]*)"|'([^']*)'/g); // Select groups of strings to separate them
-      input = input.match(reg); // Create Array of groups
+      input = input.match(reg); // adds each string that is matched to an array
       input.forEach((item) => {
         input[input.indexOf(item)] = item.replace(/["']/g, ''); //Remove single and double quotes from array as it will stringify them automagically
       });
